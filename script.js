@@ -14,40 +14,48 @@ function chooseMonth(answer) {
     let novCal = document.getElementById("novCal");
     let decCal = document.getElementById("decCal");
     
-    let months = [janCal, febCal, marCal, aprCal, mayCal, junCal, julCal, augCal, sepCal, octCal, novCal, decCal];
+    let months = [janCal, marCal, mayCal, julCal, augCal, octCal, decCal, aprCal, junCal, sepCal, novCal, febCal];
     
     let input = Math.floor(Math.random() * 12);
+    console.log(input);
     
     let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     
     monthNone();
     months[input].classList.remove("none");
-    for (i = 0; i < 7; i++) {
+    for (let i = 0; i < 7; i++) {
+        console.log(days);
         let newDay = Math.floor(Math.random() * (7 - i));
         document.getElementById(monthsNick[input] + "D" + i).innerHTML = days[newDay];
+        console.log(monthsNick[input] + "D" + i);
+        console.log(document.getElementById(monthsNick[input] + "D" + i).innerHTML);
         days.splice(newDay, 1);
     }
     
     let aDates = [];
     if (input < 7) {
-        for (i = 1; i < 32; i++) {
-            aDates.push(i);
+        for (let l = 1; l < 32; l++) {
+            aDates.push(l);
+            console.log(aDates);
         }
     } else if (input > 6 && input < 11) {
-        for (i = 1; i < 31; i++) {
-            aDates.push(i);
+        for (let l = 1; l < 31; l++) {
+            aDates.push(l);
+            console.log(aDates);
         }
     } else {
-        for (i = 1; i < 29; i++) {
-            aDates.push(i);
+        for (let l = 1; l < 29; l++) {
+            aDates.push(l);
+            console.log(aDates);
         }
     }
+    console.log(aDates);
     
-    for (i = 1; i < aDates.length + 1; i++) {
-        let newDate = Math.floor(Math.random() * (aDates.length - i) + 1);
-        console.log(newDate);
-        document.getElementById(monthsNick[input] + i).innerHTML = aDates[newDate];
-        console.log(document.getElementById(monthsNick[input] + i).innerHTML);
+    for (let j = 1; j < aDates.length + 1; j++) {
+        let newDate = Math.floor(Math.random() * (aDates.length - j) + 1);
+        document.getElementById(monthsNick[input] + j).innerHTML = aDates[newDate];
+        console.log(monthsNick[input] + j);
+        console.log(document.getElementById(monthsNick[input] + j).innerHTML);
         aDates.splice(newDate, 1);
     }
 }
@@ -93,14 +101,7 @@ function addEvent() {
     console.log(monthsNick[ranMon]);
     console.log(ranDat);
     console.log(monthsNick[ranMon] + date);
-    
-    if (document.getElementById(monthsNick[ranMon] + date).classList.contains(monthsNick[ranMon] + date)) {
-        document.getElementById(monthsNick[ranMon] + date).classList.remove(monthsNick[ranMon] + date);
-        document.getElementById(monthsNick[ranMon] + date).classList.add("both");
-    }
-    else if (!document.getElementById(monthsNick[ranMon] + date).classList.contains(monthsNick[ranMon] + date)) {
-        document.getElementById(monthsNick[ranMon] + date).classList.add("personal");
-    }
+    document.getElementById(monthsNick[ranMon] + date).classList.add("personal");
     
     console.log(document.getElementById(monthsNick[ranMon] + date).innerHTML);
     ogDate.value = null;
