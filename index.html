@@ -1,0 +1,793 @@
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    
+    <h1 id="title">Useful Calendar</h1>
+    <h2>Click on the drop down menu and select a month that you want to go to!</h2>
+    
+    <label for="months">Choose the month:</label>
+    <select id="months" name="months" onchange="chooseMonth(this)">
+        <option value="blank"></option>
+        <option value="January">January</option>
+        <option value="February">February</option>
+        <option value="March">March</option>
+        <option value="April">April</option>
+        <option value="May">May</option>
+        <option value="June">June</option>
+        <option value="July">July</option>
+        <option value="August">August</option>
+        <option value="September">September</option>
+        <option value="October">October</option>
+        <option value="November">November</option>
+        <option value="December">December</option>
+    </select>
+    
+    <br><br>
+    
+    <label for="name">Enter the to-do here:</label>
+    <input type="text" id="name">
+    <br><br>
+    <label for="date">Enter the due date here with this format: first three letters of the month + the day (ex. jan31)</label>
+    <input type="text" id="date">
+    <h4>*Once the to-do is added, the day of the event will turn blue if there is no existing holiday and purple if there is.</h4>
+    <h4>*In order to access information about a festival or event, simply click on the day!</h4>
+    
+    <input type="button" value="Click here to add event!" onclick="addEvent()" id="button">
+    
+    <br><br>
+    
+    <table id="janCal" class="none">
+        <tr>
+            <th>January</th>
+        </tr>
+        <tr>
+            <td id="janD0">Sunday</td>
+            <td id="janD1">Monday</td>
+            <td id="janD2">Tuesday</td>
+            <td id="janD3">Wednesday</td>
+            <td id="janD4">Thursday</td>
+            <td id="janD5">Friday</td>
+            <td id="janD6">Saturday</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td id="jan1" onclick="checkEvent('jan1');">1</td>
+            <td id="jan2" onclick="checkEvent('jan2')">2</td>
+            <td id="jan3" onclick="checkEvent('jan3')">3</td>
+            <td id="jan4" onclick="checkEvent('jan4')">4</td>
+        </tr>
+        <tr>
+            <td id="jan5" onclick="checkEvent('jan5')">5</td>
+            <td id="jan6" onclick="checkEvent('jan6')">6</td>
+            <td id="jan7" onclick="checkEvent('jan7')">7</td>
+            <td id="jan8" onclick="checkEvent('jan8')">8</td>
+            <td id="jan9" onclick="checkEvent('jan9')">9</td>
+            <td id="jan10" onclick="checkEvent('jan10')">10</td>
+            <td id="jan11" onclick="checkEvent('jan11')">11</td>
+        </tr>
+        <tr>
+            <td id="jan12" onclick="checkEvent('jan12')">12</td>
+            <td id="jan13" onclick="checkEvent('jan13')">13</td>
+            <td id="jan14" onclick="checkEvent('jan14')">14</td>
+            <td id="jan15" onclick="checkEvent('jan15')">15</td>
+            <td id="jan16" onclick="checkEvent('jan16')">16</td>
+            <td id="jan17" onclick="checkEvent('jan17')">17</td>
+            <td id="jan18" onclick="checkEvent('jan18')">18</td>
+        </tr>
+        <tr>
+            <td id="jan19" onclick="checkEvent('jan19')">19</td>
+            <td id="jan20" onclick="checkEvent('jan20')">20</td>
+            <td id="jan21" onclick="checkEvent('jan21')">21</td>
+            <td id="jan22" onclick="checkEvent('jan22')">22</td>
+            <td id="jan23" onclick="checkEvent('jan23')">23</td>
+            <td id="jan24" onclick="checkEvent('jan24')">24</td>
+            <td id="jan25" onclick="checkEvent('jan25')">25</td>
+        </tr>
+        <tr>
+            <td id="jan26" onclick="checkEvent('jan26')">26</td>
+            <td id="jan27" onclick="checkEvent('jan27')">27</td>
+            <td id="jan28" onclick="checkEvent('jan28')">28</td>
+            <td id="jan29" onclick="checkEvent('jan29');" class="jan29">29</td>
+            <td id="jan30" onclick="checkEvent('jan30')">30</td>
+            <td id="jan31" onclick="checkEvent('jan31')">31</td>
+        </tr>
+    </table>
+    
+    <table id="febCal" class="none">
+        <tr>
+            <th>February</th>
+        </tr>
+        <tr>
+            <td id="febD0">Sunday</td>
+            <td id="febD1">Monday</td>
+            <td id="febD2">Tuesday</td>
+            <td id="febD3">Wednesday</td>
+            <td id="febD4">Thursday</td>
+            <td id="febD5">Friday</td>
+            <td id="febD6">Saturday</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td id="feb1" onclick="checkEvent('feb1')">1</td>
+        </tr>
+        <tr>
+            <td id="feb2" onclick="checkEvent('feb2')">2</td>
+            <td id="feb3" onclick="checkEvent('feb3')">3</td>
+            <td id="feb4" onclick="checkEvent('feb4')">4</td>
+            <td id="feb5" onclick="checkEvent('feb5')">5</td>
+            <td id="feb6" onclick="checkEvent('feb6')">6</td>
+            <td id="feb7" onclick="checkEvent('feb7')">7</td>
+            <td id="feb8" onclick="checkEvent('feb8')">8</td>
+        </tr>
+        <tr>
+            <td id="feb9" onclick="checkEvent('feb9')">9</td>
+            <td id="feb10" onclick="checkEvent('feb10')">10</td>
+            <td id="feb11" onclick="checkEvent('feb11')">11</td>
+            <td id="feb12" onclick="checkEvent('feb12')" class="feb12">12</td>
+            <td id="feb13" onclick="checkEvent('feb13')">13</td>
+            <td id="feb14" onclick="checkEvent('feb14')">14</td>
+            <td id="feb15" onclick="checkEvent('feb15')">15</td>
+        </tr>
+        <tr>
+            <td id="feb16" onclick="checkEvent('feb16')">16</td>
+            <td id="feb17" onclick="checkEvent('feb17')">17</td>
+            <td id="feb18" onclick="checkEvent('feb18')">18</td>
+            <td id="feb19" onclick="checkEvent('feb19')">19</td>
+            <td id="feb20" onclick="checkEvent('feb20')">20</td>
+            <td id="feb21" onclick="checkEvent('feb21')">21</td>
+            <td id="feb22" onclick="checkEvent('feb22')">22</td>
+         </tr>
+         <tr>
+            <td id="feb23" onclick="checkEvent('feb23')">23</td>
+            <td id="feb24" onclick="checkEvent('feb24')">24</td>
+            <td id="feb25" onclick="checkEvent('feb25')">25</td>
+            <td id="feb26" onclick="checkEvent('feb26')">26</td>
+            <td id="feb27" onclick="checkEvent('feb27')">27</td>
+            <td id="feb28" onclick="checkEvent('feb28')">28</td>
+            <td></td>
+         </tr>
+    </table>
+
+    <table id="marCal" class="none">
+        <tr>
+            <th>March</th>
+        </tr>
+        <tr>
+            <td id="marD0">Sunday</td>
+            <td id="marD1">Monday</td>
+            <td id="marD2">Tuesday</td>
+            <td id="marD3">Wednesday</td>
+            <td id="marD4">Thursday</td>
+            <td id="marD5">Friday</td>
+            <td id="marD6">Saturday</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td id="mar1" onclick="checkEvent('mar1')">1</td>
+        </tr>
+        <tr>
+            <td id="mar2" onclick="checkEvent('mar2')">2</td>
+            <td id="mar3" onclick="checkEvent('mar3')">3</td>
+            <td id="mar4" onclick="checkEvent('mar4')">4</td>
+            <td id="mar5" onclick="checkEvent('mar5')">5</td>
+            <td id="mar6" onclick="checkEvent('mar6')">6</td>
+            <td id="mar7" onclick="checkEvent('mar7')">7</td>
+            <td id="mar8" onclick="checkEvent('mar8')">8</td>
+        </tr>
+        <tr>
+            <td id="mar9" onclick="checkEvent('mar9')">9</td>
+            <td id="mar10" onclick="checkEvent('mar10')">10</td>
+            <td id="mar11" onclick="checkEvent('mar11')">11</td>
+            <td id="mar12" onclick="checkEvent('mar12')">12</td>
+            <td id="mar13" onclick="checkEvent('mar13')">13</td>
+            <td id="mar14" onclick="checkEvent('mar14')">14</td>
+            <td id="mar15" onclick="checkEvent('mar15')">15</td>
+        </tr>
+        <tr>
+            <td id="mar16" onclick="checkEvent('mar16')">16</td>
+            <td id="mar17" onclick="checkEvent('mar17')">17</td>
+            <td id="mar18" onclick="checkEvent('mar18')">18</td>
+            <td id="mar19" onclick="checkEvent('mar19')">19</td>
+            <td id="mar20" onclick="checkEvent('mar20')">20</td>
+            <td id="mar21" onclick="checkEvent('mar21')">21</td>
+            <td id="mar22" onclick="checkEvent('mar22')">22</td>
+        </tr>
+        <tr>
+            <td id="mar23" onclick="checkEvent('mar23')">23</td>
+            <td id="mar24" onclick="checkEvent('mar24')">24</td>
+            <td id="mar25" onclick="checkEvent('mar25')">25</td>
+            <td id="mar26" onclick="checkEvent('mar26')">26</td>
+            <td id="mar27" onclick="checkEvent('mar27')">27</td>
+            <td id="mar28" onclick="checkEvent('mar28')">28</td>
+            <td id="mar29" onclick="checkEvent('mar29')">29</td>
+        </tr>
+        <tr>
+            <td id="mar30" onclick="checkEvent('mar30')">30</td>
+            <td id="mar31" onclick="checkEvent('mar31')">31</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    
+    <table id="aprCal" class="none">
+        <tr>
+            <th>April</th>
+        </tr>
+        <tr>
+            <td id="aprD0">Sunday</td>
+            <td id="aprD1">Monday</td>
+            <td id="aprD2">Tuesday</td>
+            <td id="aprD3">Wednesday</td>
+            <td id="aprD4">Thursday</td>
+            <td id="aprD5">Friday</td>
+            <td id="aprD6">Saturday</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td id="apr1" onclick="checkEvent('apr1')">1</td>
+            <td id="apr2" onclick="checkEvent('apr2')">2</td>
+            <td id="apr3" onclick="checkEvent('apr3')">3</td>
+            <td id="apr4"  onclick="checkEvent('apr4')" class="apr4">4</td>
+            <td id="apr5" onclick="checkEvent('apr5')">5</td>
+        </tr>
+        <tr>
+            <td id="apr6" onclick="checkEvent('apr6')">6</td>
+            <td id="apr7" onclick="checkEvent('apr7')">7</td>
+            <td id="apr8" onclick="checkEvent('apr8')">8</td>
+            <td id="apr9" onclick="checkEvent('apr9')">9</td>
+            <td id="apr10" onclick="checkEvent('apr10')">10</td>
+            <td id="apr11" onclick="checkEvent('apr11')">11</td>
+            <td id="apr12" onclick="checkEvent('apr12')">12</td>
+        </tr>
+        <tr>
+            <td id="apr13" onclick="checkEvent('apr13')">13</td>
+            <td id="apr14" onclick="checkEvent('apr14')">14</td>
+            <td id="apr15" onclick="checkEvent('apr15')">15</td>
+            <td id="apr16" onclick="checkEvent('apr16')">16</td>
+            <td id="apr17" onclick="checkEvent('apr17')">17</td>
+            <td id="apr18" onclick="checkEvent('apr18')">18</td>
+            <td id="apr19" onclick="checkEvent('apr19')">19</td>
+        </tr>
+        <tr>
+            <td id="apr20" onclick="checkEvent('apr20')">20</td>
+            <td id="apr21" onclick="checkEvent('apr21')">21</td>
+            <td id="apr22" onclick="checkEvent('apr22')">22</td>
+            <td id="apr23" onclick="checkEvent('apr23')">23</td>
+            <td id="apr24" onclick="checkEvent('apr24')">24</td>
+            <td id="apr25" onclick="checkEvent('apr25')">25</td>
+            <td id="apr26" onclick="checkEvent('apr26')">26</td>
+        </tr>
+        <tr>
+            <td id="apr27" onclick="checkEvent('apr27')">27</td>
+            <td id="apr28" onclick="checkEvent('apr28')">28</td>
+            <td id="apr29" onclick="checkEvent('apr29')">29</td>
+            <td id="apr30" onclick="checkEvent('apr30')">30</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    
+    <table id="mayCal" class="none">
+        <tr>
+            <th>May</th>
+        </tr>
+        <tr>
+            <td id="mayD0">Sunday</td>
+            <td id="mayD1">Monday</td>
+            <td id="mayD2">Tuesday</td>
+            <td id="mayD3">Wednesday</td>
+            <td id="mayD4">Thursday</td>
+            <td id="mayD5">Friday</td>
+            <td id="mayD6">Saturday</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td id="may1" onclick="checkEvent('may1')" class="may1">1</td>
+            <td id="may2" onclick="checkEvent('may2')">2</td>
+            <td id="may3" onclick="checkEvent('may3')">3</td>
+        </tr>
+        <tr>
+            <td id="may4" onclick="checkEvent('may4')">4</td>
+            <td id="may5" onclick="checkEvent('may5')">5</td>
+            <td id="may6" onclick="checkEvent('may6')">6</td>
+            <td id="may7" onclick="checkEvent('may7')">7</td>
+            <td id="may8" onclick="checkEvent('may8')">8</td>
+            <td id="may9" onclick="checkEvent('may9')">9</td>
+            <td id="may10" onclick="checkEvent('may10')">10</td>
+        </tr>
+        <tr>
+            <td id="may11" onclick="checkEvent('may11')">11</td>
+            <td id="may12" onclick="checkEvent('may12')">12</td>
+            <td id="may13" onclick="checkEvent('may13')">13</td>
+            <td id="may14" onclick="checkEvent('may14')">14</td>
+            <td id="may15" onclick="checkEvent('may15')">15</td>
+            <td id="may16" onclick="checkEvent('may16')">16</td>
+            <td id="may17" onclick="checkEvent('may17')">17</td>
+        </tr>
+        <tr>
+            <td id="may18" onclick="checkEvent('may18')">18</td>
+            <td id="may19" onclick="checkEvent('may19')">19</td>
+            <td id="may20" onclick="checkEvent('may20')">20</td>
+            <td id="may21" onclick="checkEvent('may21')">21</td>
+            <td id="may22" onclick="checkEvent('may22')">22</td>
+            <td id="may23" onclick="checkEvent('may23')">23</td>
+            <td id="may24" onclick="checkEvent('may24')">24</td>
+        </tr>
+        <tr>
+            <td id="may25" onclick="checkEvent('may25')">25</td>
+            <td id="may26" onclick="checkEvent('may26')">26</td>
+            <td id="may27" onclick="checkEvent('may27')">27</td>
+            <td id="may28" onclick="checkEvent('may28')">28</td>
+            <td id="may29" onclick="checkEvent('may29')">29</td>
+            <td id="may30" onclick="checkEvent('may30')">30</td>
+            <td id="may31" onclick="checkEvent('may31')" class="may31">31</td>
+        </tr>
+    </table>
+
+    <table id="junCal" class="none">
+        <tr>
+            <th>June</th>
+        </tr>
+        <tr>
+            <td id="junD0">Sunday</td>
+            <td id="junD1">Monday</td>
+            <td id="junD2">Tuesday</td>
+            <td id="junD3">Wednesday</td>
+            <td id="junD4">Thursday</td>
+            <td id="junD5">Friday</td>
+            <td id="junD6">Saturday</td>
+        </tr>
+        <tr>
+            <td id="jun1"  onclick="checkEvent('jun1');" class="jun1">1</td>
+            <td id="jun2" onclick="checkEvent('jun2')">2</td>
+            <td id="jun3" onclick="checkEvent('jun3')">3</td>
+            <td id="jun4" onclick="checkEvent('jun4')">4</td>
+            <td id="jun5" onclick="checkEvent('jun5')">5</td>
+            <td id="jun6" onclick="checkEvent('jun6')">6</td>
+            <td id="jun7" onclick="checkEvent('jun7')">7</td>
+        </tr>
+        <tr>
+            <td id="jun8" onclick="checkEvent('jun8')">8</td>
+            <td id="jun9" onclick="checkEvent('jun9')">9</td>
+            <td id="jun10" onclick="checkEvent('jun10')">10</td>
+            <td id="jun11" onclick="checkEvent('jun11')">11</td>
+            <td id="jun12" onclick="checkEvent('jun12')">12</td>
+            <td id="jun13" onclick="checkEvent('jun13')">13</td>
+            <td id="jun14" onclick="checkEvent('jun14')">14</td>
+        </tr>
+        <tr>
+            <td id="jun15" onclick="checkEvent('jun15')">15</td>
+            <td id="jun16" onclick="checkEvent('jun16')">16</td>
+            <td id="jun17" onclick="checkEvent('jun17')">17</td>
+            <td id="jun18" onclick="checkEvent('jun18')">18</td>
+            <td id="jun19" onclick="checkEvent('jun19')">19</td>
+            <td id="jun20" onclick="checkEvent('jun20')">20</td>
+            <td id="jun21" onclick="checkEvent('jun21')">21</td>
+        </tr>
+        <tr>
+            <td id="jun22" onclick="checkEvent('jun22')">22</td>
+            <td id="jun23" onclick="checkEvent('jun23')">23</td>
+            <td id="jun24" onclick="checkEvent('jun24')">24</td>
+            <td id="jun25" onclick="checkEvent('jun25')">25</td>
+            <td id="jun26" onclick="checkEvent('jun26')">26</td>
+            <td id="jun27" onclick="checkEvent('jun27')">27</td>
+            <td id="jun28" onclick="checkEvent('jun28')">28</td>
+        </tr>
+        <tr>
+            <td id="jun29" onclick="checkEvent('jun29')">29</td>
+            <td id="jun30" onclick="checkEvent('jun30')">30</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    
+    <table id="julCal" class="none">
+        <tr>
+            <th>July</th>
+        </tr>
+        <tr>
+            <td id="julD0">Sunday</td>
+            <td id="julD1">Monday</td>
+            <td id="julD2">Tuesday</td>
+            <td id="julD3">Wednesday</td>
+            <td id="julD4">Thursday</td>
+            <td id="julD5">Friday</td>
+            <td id="julD6">Saturday</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td id="jul1" onclick="checkEvent('jul1')">1</td>
+            <td id="jul2" onclick="checkEvent('jul2')">2</td>
+            <td id="jul3" onclick="checkEvent('jul3')">3</td>
+            <td id="jul4" onclick="checkEvent('jul4')">4</td>
+            <td id="jul5" onclick="checkEvent('jul5')">5</td>
+        </tr>
+        <tr>
+            <td id="jul6" onclick="checkEvent('jul6')">6</td>
+            <td id="jul7" onclick="checkEvent('jul7')">7</td>
+            <td id="jul8" onclick="checkEvent('jul8')">8</td>
+            <td id="jul9" onclick="checkEvent('jul9')">9</td>
+            <td id="jul10" onclick="checkEvent('jul10')">10</td>
+            <td id="jul11" onclick="checkEvent('jul11')">11</td>
+            <td id="jul12" onclick="checkEvent('jul12')">12</td>
+        </tr>
+        <tr>
+            <td id="jul13" onclick="checkEvent('jul13')">13</td>
+            <td id="jul14" onclick="checkEvent('jul14')">14</td>
+            <td id="jul15" onclick="checkEvent('jul15')">15</td>
+            <td id="jul16" onclick="checkEvent('jul16')">16</td>
+            <td id="jul17" onclick="checkEvent('jul17')">17</td>
+            <td id="jul18" onclick="checkEvent('jul18')">18</td>
+            <td id="jul19" onclick="checkEvent('jul19')">19</td>
+        </tr>
+        <tr>
+            <td id="jul20" onclick="checkEvent('jul20')">20</td>
+            <td id="jul21" onclick="checkEvent('jul21')">21</td>
+            <td id="jul22" onclick="checkEvent('jul22')">22</td>
+            <td id="jul23" onclick="checkEvent('jul23')">23</td>
+            <td id="jul24" onclick="checkEvent('jul24')">24</td>
+            <td id="jul25" onclick="checkEvent('jul25')">25</td>
+            <td id="jul26" onclick="checkEvent('jul26')">26</td>
+        </tr>
+        <tr>
+            <td id="jul27" onclick="checkEvent('jul27')">27</td>
+            <td id="jul28" onclick="checkEvent('jul28')">28</td>
+            <td id="jul29" onclick="checkEvent('jul29')">29</td>
+            <td id="jul30" onclick="checkEvent('jul30')">30</td>
+            <td id="jul31" onclick="checkEvent('jul31')">31</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    
+    <table id="augCal" class="none">
+        <tr>
+            <th>August</th>
+        </tr>
+        <tr>
+            <td id="augD0">Sunday</td>
+            <td id="augD1">Monday</td>
+            <td id="augD2">Tuesday</td>
+            <td id="augD3">Wednesday</td>
+            <td id="augD4">Thursday</td>
+            <td id="augD5">Friday</td>
+            <td id="augD6">Saturday</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td id="aug1" onclick="checkEvent('aug1')">1</td>
+            <td id="aug2" onclick="checkEvent('aug2')">2</td>
+        </tr>
+        <tr>
+            <td id="aug3" onclick="checkEvent('aug3')">3</td>
+            <td id="aug4" onclick="checkEvent('aug4')">4</td>
+            <td id="aug5" onclick="checkEvent('aug5')">5</td>
+            <td id="aug6" onclick="checkEvent('aug6')">6</td>
+            <td id="aug7" onclick="checkEvent('aug7')">7</td>
+            <td id="aug8" onclick="checkEvent('aug8')">8</td>
+            <td id="aug9" onclick="checkEvent('aug9')">9</td>
+        </tr>
+        <tr>
+            <td id="aug10" onclick="checkEvent('aug10')">10</td>
+            <td id="aug11" onclick="checkEvent('aug11')">11</td>
+            <td id="aug12" onclick="checkEvent('aug12')">12</td>
+            <td id="aug13" onclick="checkEvent('aug13')">13</td>
+            <td id="aug14" onclick="checkEvent('aug14')">14</td>
+            <td id="aug15" onclick="checkEvent('aug15')">15</td>
+            <td id="aug16" onclick="checkEvent('aug16')">16</td>
+        </tr>
+        <tr>
+            <td id="aug17" onclick="checkEvent('aug17')">17</td>
+            <td id="aug18" onclick="checkEvent('aug18')">18</td>
+            <td id="aug19" onclick="checkEvent('aug19')">19</td>
+            <td id="aug20" onclick="checkEvent('aug20')">20</td>
+            <td id="aug21" onclick="checkEvent('aug21')">21</td>
+            <td id="aug22" onclick="checkEvent('aug22')">22</td>
+            <td id="aug23" onclick="checkEvent('aug23')">23</td>
+        </tr>
+        <tr>
+            <td id="aug24" onclick="checkEvent('aug24')">24</td>
+            <td id="aug25" onclick="checkEvent('aug25')">25</td>
+            <td id="aug26" onclick="checkEvent('aug26')">26</td>
+            <td id="aug27" onclick="checkEvent('aug27')">27</td>
+            <td id="aug28" onclick="checkEvent('aug28')">28</td>
+            <td id="aug29"  onclick="checkEvent('aug29')" class="aug29">29</td>
+            <td id="aug30" onclick="checkEvent('aug30')">30</td>
+        </tr>
+        <tr>
+            <td id="aug31" onclick="checkEvent('aug31')">31</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    
+    <table id="sepCal" class="none">
+        <tr>
+            <th>September</th>
+        </tr>
+        <tr>
+            <td id="sepD0">Sunday</td>
+            <td id="sepD1">Monday</td>
+            <td id="sepD2">Tuesday</td>
+            <td id="sepD3">Wednesday</td>
+            <td id="sepD4">Thursday</td>
+            <td id="sepD5">Friday</td>
+            <td id="sepD6">Saturday</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td id="sep1" onclick="checkEvent('sep1')">1</td>
+            <td id="sep2" onclick="checkEvent('sep2')">2</td>
+            <td id="sep3" onclick="checkEvent('sep3')">3</td>
+            <td id="sep4" onclick="checkEvent('sep4')">4</td>
+            <td id="sep5" onclick="checkEvent('sep5')">5</td>
+            <td id="sep6"  onclick="checkEvent('sep6')" class="sep6">6</td>
+        </tr>
+        <tr>
+            <td id="sep7" onclick="checkEvent('sep7')">7</td>
+            <td id="sep8" onclick="checkEvent('sep8')">8</td>
+            <td id="sep9" onclick="checkEvent('sep9')">9</td>
+            <td id="sep10" onclick="checkEvent('sep10')">10</td>
+            <td id="sep11" onclick="checkEvent('sep11')">11</td>
+            <td id="sep12" onclick="checkEvent('sep12')">12</td>
+            <td id="sep13" onclick="checkEvent('sep13')">13</td>
+        </tr>
+        <tr>
+            <td id="sep14" onclick="checkEvent('sep14')">14</td>
+            <td id="sep15" onclick="checkEvent('sep15')">15</td>
+            <td id="sep16" onclick="checkEvent('sep16')">16</td>
+            <td id="sep17" onclick="checkEvent('sep17')">17</td>
+            <td id="sep18" onclick="checkEvent('sep18')">18</td>
+            <td id="sep19" onclick="checkEvent('sep19')">19</td>
+            <td id="sep20" onclick="checkEvent('sep20')">20</td>
+        </tr>
+        <tr>
+            <td id="sep21" onclick="checkEvent('sep21')">21</td>
+            <td id="sep22" onclick="checkEvent('sep22')">22</td>
+            <td id="sep23" onclick="checkEvent('sep22')">23</td>
+            <td id="sep24" onclick="checkEvent('sep24')">24</td>
+            <td id="sep25" onclick="checkEvent('sep25')">25</td>
+            <td id="sep26" onclick="checkEvent('sep26')">26</td>
+            <td id="sep27" onclick="checkEvent('sep27')">27</td>
+        </tr>
+        <tr>
+            <td id="sep28" onclick="checkEvent('sep28')">28</td>
+            <td id="sep29" onclick="checkEvent('sep29')">29</td>
+            <td id="sep30" onclick="checkEvent('sep30')">30</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    
+    <table id="octCal" class="none">
+        <tr>
+            <th>October</th>
+        </tr>
+        <tr>
+            <td id="octD0">Sunday</td>
+            <td id="octD1">Monday</td>
+            <td id="octD2">Tuesday</td>
+            <td id="octD3">Wednesday</td>
+            <td id="octD4">Thursday</td>
+            <td id="octD5">Friday</td>
+            <td id="octD6">Saturday</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td id="oct1" onclick="checkEvent('oct1')">1</td>
+            <td id="oct2" onclick="checkEvent('oct2')">2</td>
+            <td id="oct3" onclick="checkEvent('oct3')">3</td>
+            <td id="oct4" onclick="checkEvent('oct4')">4</td>
+        </tr>
+        <tr>
+            <td id="oct5" onclick="checkEvent('oct5')">5</td>
+            <td id="oct6"  onclick="checkEvent('oct6');" class="oct6">6</td>
+            <td id="oct7" onclick="checkEvent('oct7')">7</td>
+            <td id="oct8" onclick="checkEvent('oct8')">8</td>
+            <td id="oct9" onclick="checkEvent('oct9')">9</td>
+            <td id="oct10"  onclick="checkEvent('oct10');" class="oct10">10</td>
+            <td id="oct11" onclick="checkEvent('oct11')">11</td>
+        </tr>
+        <tr>
+            <td id="oct12" onclick="checkEvent('oct12')">12</td>
+            <td id="oct13" onclick="checkEvent('oct13')">13</td>
+            <td id="oct14" onclick="checkEvent('oct14')">14</td>
+            <td id="oct15" onclick="checkEvent('oct15')">15</td>
+            <td id="oct16" onclick="checkEvent('oct16')">16</td>
+            <td id="oct17" onclick="checkEvent('oct17')">17</td>
+            <td id="oct18" onclick="checkEvent('oct18')">18</td>
+        </tr>
+        <tr>
+            <td id="oct19" onclick="checkEvent('oct19')">19</td>
+            <td id="oct20" onclick="checkEvent('oct20')">20</td>
+            <td id="oct21" onclick="checkEvent('oct21')">21</td>
+            <td id="oct22" onclick="checkEvent('oct22')">22</td>
+            <td id="oct23" onclick="checkEvent('oct23')">23</td>
+            <td id="oct24" onclick="checkEvent('oct24')">24</td>
+            <td id="oct25" onclick="checkEvent('oct25')">25</td>
+        </tr>
+        <tr>
+            <td id="oct26" onclick="checkEvent('oct26')">26</td>
+            <td id="oct27" onclick="checkEvent('oct27')">27</td>
+            <td id="oct28" onclick="checkEvent('oct28')">28</td>
+            <td id="oct29" onclick="checkEvent('oct29')" class="oct29">29</td>
+            <td id="oct30" onclick="checkEvent('oct30')">30</td>
+            <td id="oct31" onclick="checkEvent('oct31')">31</td>
+            <td></td>
+        </tr>
+    </table>
+    
+    <table id="novCal" class="none">
+        <tr>
+            <th>November</th>
+        </tr>
+        <tr>
+            <td id="novD0">Sunday</td>
+            <td id="novD1">Monday</td>
+            <td id="novD2">Tuesday</td>
+            <td id="novD3">Wednesday</td>
+            <td id="novD4">Thursday</td>
+            <td id="novD5">Friday</td>
+            <td id="novD6">Saturday</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td id="nov1" onclick="checkEvent('nov1')">1</td>
+        </tr>
+        <tr>
+            <td id="nov2" onclick="checkEvent('nov2')">2</td>
+            <td id="nov3" onclick="checkEvent('nov3')">3</td>
+            <td id="nov4" onclick="checkEvent('nov4')">4</td>
+            <td id="nov5" onclick="checkEvent('nov5')">5</td>
+            <td id="nov6" onclick="checkEvent('nov6')">6</td>
+            <td id="nov7" onclick="checkEvent('nov7')">7</td>
+            <td id="nov8" onclick="checkEvent('nov8')">8</td>
+        </tr>
+        <tr>
+            <td id="nov9" onclick="checkEvent('nov9')">9</td>
+            <td id="nov10" onclick="checkEvent('nov10')">10</td>
+            <td id="nov11" onclick="checkEvent('nov11')">11</td>
+            <td id="nov12" onclick="checkEvent('nov12')">12</td>
+            <td id="nov13" onclick="checkEvent('nov13')">13</td>
+            <td id="nov14" onclick="checkEvent('nov14')">14</td>
+            <td id="nov15" onclick="checkEvent('nov15')">15</td>
+        </tr>
+        <tr>
+            <td id="nov16" onclick="checkEvent('nov16')">16</td>
+            <td id="nov17" onclick="checkEvent('nov17')">17</td>
+            <td id="nov18" onclick="checkEvent('nov18')">18</td>
+            <td id="nov19" onclick="checkEvent('nov19')">19</td>
+            <td id="nov20" onclick="checkEvent('nov20')">20</td>
+            <td id="nov21" onclick="checkEvent('nov21')">21</td>
+            <td id="nov22" onclick="checkEvent('nov22')">22</td>
+         </tr>
+         <tr>
+            <td id="nov23" onclick="checkEvent('nov23')">23</td>
+            <td id="nov24" onclick="checkEvent('nov24')">24</td>
+            <td id="nov25" onclick="checkEvent('nov25')">25</td>
+            <td id="nov26" onclick="checkEvent('nov26')">26</td>
+            <td id="nov27" onclick="checkEvent('nov27')">27</td>
+            <td id="nov28" onclick="checkEvent('nov28')">28</td>
+            <td id="nov29" onclick="checkEvent('nov29')">29</td>
+         </tr>
+         <tr>
+            <td id="nov30" onclick="checkEvent('nov30')">30</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    
+    <table id="decCal" class="none">
+        <tr>
+            <th>December</th>
+        </tr>
+        <tr>
+            <td id="decD0">Sunday</td>
+            <td id="decD1">Monday</td>
+            <td id="decD2">Tuesday</td>
+            <td id="decD3">Wednesday</td>
+            <td id="decD4">Thursday</td>
+            <td id="decD5">Friday</td>
+            <td id="decD6">Saturday</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td id="dec1" onclick="checkEvent('dec1')">1</td>
+            <td id="dec2" onclick="checkEvent('dec2')">2</td>
+            <td id="dec3" onclick="checkEvent('dec3')">3</td>
+            <td id="dec4" onclick="checkEvent('dec4')">4</td>
+            <td id="dec5" onclick="checkEvent('dec5')">5</td>
+            <td id="dec6" onclick="checkEvent('dec6')">6</td>
+        </tr>
+        <tr>
+            <td id="dec7" onclick="checkEvent('dec7')">7</td>
+            <td id="dec8" onclick="checkEvent('dec8')">8</td>
+            <td id="dec9" onclick="checkEvent('dec9')">9</td>
+            <td id="dec10" onclick="checkEvent('dec10')">10</td>
+            <td id="dec11" onclick="checkEvent('dec11')">11</td>
+            <td id="dec12" onclick="checkEvent('dec12')">12</td>
+            <td id="dec13" onclick="checkEvent('dec13')">13</td>
+        </tr>
+        <tr>
+            <td id="dec14" onclick="checkEvent('dec14')">14</td>
+            <td id="dec15" onclick="checkEvent('dec15')">15</td>
+            <td id="dec16" onclick="checkEvent('dec16')">16</td>
+            <td id="dec17" onclick="checkEvent('dec17')">17</td>
+            <td id="dec18" onclick="checkEvent('dec18')">18</td>
+            <td id="dec19" onclick="checkEvent('dec19')">19</td>
+            <td id="dec20" onclick="checkEvent('dec20')">20</td>
+        </tr>
+        <tr>
+            <td id="dec21" onclick="checkEvent('dec21')" class="dec21">21</td>
+            <td id="dec22" onclick="checkEvent('dec22')">22</td>
+            <td id="dec23" onclick="checkEvent('dec23')">23</td>
+            <td id="dec24" onclick="checkEvent('dec24')">24</td>
+            <td id="dec25" onclick="checkEvent('dec25')">25</td>
+            <td id="dec26" onclick="checkEvent('dec26')">26</td>
+            <td id="dec27" onclick="checkEvent('dec27')">27</td>
+        </tr>
+        <tr>
+            <td id="dec28" onclick="checkEvent('dec28')">28</td>
+            <td id="dec29" onclick="checkEvent('dec29')">29</td>
+            <td id="dec30" onclick="checkEvent('dec30')">30</td>
+            <td id="dec31" onclick="checkEvent('dec31')">31</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    
+    <p id="personal" class="none"></p>
+    
+    <script src="script.js"></script>
+    
+</body>
+</html>
